@@ -57,3 +57,43 @@ Tags: custom-menu, sidebar, rtl-language-support, tailwind
 .container {
     padding: 20px;
 }
+
+/* Make sidebar menu background the same color as header */
+.transpro-sidebar {
+    background-color: #192841; /* Dark blue color matching the header */
+}
+
+/* Adjust text color in sidebar for better visibility on dark background */
+.transpro-sidebar .sidebar-menu a {
+    color: #ffffff;
+}
+
+.transpro-sidebar .sidebar-menu a:hover {
+    color: #e2e8f0;
+}
+
+/* Force sidebar background to match header */
+#secondary.transpro-sidebar,
+aside#secondary.transpro-sidebar,
+.transpro-sidebar {
+    background-color: #192841 !important; /* Use !important to override other styles */
+}
+
+/* Also style the sidebar menu and links */
+.sidebar-menu,
+.sidebar-nav,
+.transpro-sidebar nav {
+    background-color: #192841 !important;
+}
+
+.transpro-sidebar a,
+.sidebar-nav a,
+.sidebar-menu a {
+    color: #ffffff !important;
+}
+
+.transpro-sidebar a:hover,
+.sidebar-nav a:hover,
+.sidebar-menu a:hover {
+    color: #e2e8f0 !important;
+}
