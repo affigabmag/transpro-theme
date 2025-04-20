@@ -1,0 +1,123 @@
+/**
+ * TransPro Theme RTL CSS
+ * This file contains styles specific to RTL language support
+ */
+
+/* Base RTL settings */
+body.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+/* RTL sidebar positioning */
+body.rtl .transpro-sidebar {
+    left: auto;
+    right: 0;
+}
+
+body.rtl .has-sidebar .site-main {
+    margin-left: 0;
+    margin-right: 250px;
+}
+
+@media (max-width: 768px) {
+    body.rtl .has-sidebar .site-main {
+        margin-right: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    body.rtl .transpro-sidebar {
+        transform: translateX(100%);
+    }
+    
+    body.rtl .has-sidebar .site-main {
+        margin-right: 0;
+    }
+    
+    body.rtl .sidebar-open .transpro-sidebar {
+        transform: translateX(0);
+    }
+    
+    body.rtl .sidebar-toggle {
+        left: auto;
+        right: 1rem;
+    }
+}
+
+/* RTL navigation adjustments */
+body.rtl .main-navigation li {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+/* RTL sidebar navigation */
+body.rtl .sidebar-nav li a {
+    border-left: none;
+    border-right: 3px solid transparent;
+}
+
+body.rtl .sidebar-nav li a:hover,
+body.rtl .sidebar-nav li.current-menu-item a {
+    border-left-color: transparent;
+    border-right-color: #3b82f6;
+}
+
+/* RTL form elements */
+body.rtl input[type="text"],
+body.rtl input[type="email"],
+body.rtl input[type="url"],
+body.rtl input[type="password"],
+body.rtl input[type="search"],
+body.rtl textarea {
+    text-align: right;
+}
+
+/* RTL list styles */
+body.rtl ul,
+body.rtl ol {
+    padding-right: 1.5em;
+    padding-left: 0;
+}
+
+/* RTL quote styles */
+body.rtl blockquote {
+    border-left: none;
+    border-right: 4px solid #e5e7eb;
+    padding-left: 0;
+    padding-right: 1em;
+}
+
+/* RTL button icons */
+body.rtl .button-icon-left .icon {
+    margin-right: 0;
+    margin-left: 0.5em;
+}
+
+body.rtl .button-icon-right .icon {
+    margin-left: 0;
+    margin-right: 0.5em;
+}
+
+/* RTL form checkbox and radio */
+body.rtl input[type="checkbox"],
+body.rtl input[type="radio"] {
+    margin-right: 0;
+    margin-left: 0.5em;
+}
+
+/* RTL dropdown menus */
+body.rtl .dropdown-menu {
+    left: auto;
+    right: 0;
+    text-align: right;
+}
+
+/* RTL pagination */
+body.rtl .pagination .prev {
+    transform: rotate(180deg);
+}
+
+body.rtl .pagination .next {
+    transform: rotate(180deg);
+}

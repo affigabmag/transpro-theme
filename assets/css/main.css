@@ -1,0 +1,283 @@
+/**
+ * TransPro Theme Main CSS
+ */
+
+/* Basic layout */
+.site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-content {
+    flex: 1;
+}
+
+/* Sidebar styles */
+.transpro-sidebar {
+    width: 250px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding-top: 60px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    z-index: 90;
+}
+
+.rtl .transpro-sidebar {
+    left: auto;
+    right: 0;
+}
+
+.has-sidebar .site-main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+.rtl .has-sidebar .site-main {
+    margin-left: 0;
+    margin-right: 250px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .transpro-sidebar {
+        width: 200px;
+    }
+    
+    .has-sidebar .site-main {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+    }
+    
+    .rtl .has-sidebar .site-main {
+        margin-left: 0;
+        margin-right: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .transpro-sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+    }
+    
+    .rtl .transpro-sidebar {
+        transform: translateX(100%);
+    }
+    
+    .has-sidebar .site-main {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .rtl .has-sidebar .site-main {
+        margin-right: 0;
+    }
+    
+    .sidebar-open .transpro-sidebar {
+        transform: translateX(0);
+    }
+}
+
+/* Sidebar navigation styles */
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    padding: 0;
+}
+
+.sidebar-nav li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #4b5563;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.rtl .sidebar-nav li a {
+    border-left: none;
+    border-right: 3px solid transparent;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li.current-menu-item a {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #1e40af;
+    border-left-color: #3b82f6;
+}
+
+.rtl .sidebar-nav li a:hover,
+.rtl .sidebar-nav li.current-menu-item a {
+    border-left-color: transparent;
+    border-right-color: #3b82f6;
+}
+
+/* Header styles */
+.site-header {
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-bar .site-header {
+    top: 32px;
+}
+
+.admin-bar .transpro-sidebar {
+    padding-top: 92px;
+}
+
+@media (max-width: 782px) {
+    .admin-bar .site-header {
+        top: 46px;
+    }
+    
+    .admin-bar .transpro-sidebar {
+        padding-top: 106px;
+    }
+}
+
+/* Main navigation */
+.main-navigation ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation li {
+    position: relative;
+    margin-right: 1rem;
+}
+
+.rtl .main-navigation li {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+.main-navigation a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #1f2937;
+}
+
+.main-navigation a:hover {
+    color: #3b82f6;
+}
+
+/* Login status */
+.login-status {
+    display: flex;
+    align-items: center;
+}
+
+.login-status a {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: #3b82f6;
+}
+
+.login-status a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .main-navigation ul {
+        display: none;
+    }
+    
+    .main-navigation.toggled ul {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-navigation.toggled li {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .rtl .main-navigation.toggled li {
+        margin-left: 0;
+    }
+}
+
+/* RTL specific styles */
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Content area */
+.entry-content {
+    margin-bottom: 2rem;
+}
+
+.entry-content p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Sidebar toggle button for mobile */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 110;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.rtl .sidebar-toggle {
+    left: auto;
+    right: 1rem;
+}
+
+@media (max-width: 576px) {
+    .sidebar-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

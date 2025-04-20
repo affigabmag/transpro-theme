@@ -1,0 +1,106 @@
+/**
+ * TransPro Theme Admin CSS
+ */
+
+/* TransPro Settings Page */
+.appearance_page_transpro-settings .wrap {
+    max-width: 800px;
+}
+
+.appearance_page_transpro-settings .form-table th {
+    width: 200px;
+}
+
+.appearance_page_transpro-settings .form-table td fieldset {
+    margin-top: 5px;
+}
+
+.appearance_page_transpro-settings .form-table td label {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* TransPro notices */
+#transpro-direction-notice,
+#transpro-menu-notice {
+    margin: 15px 0;
+}
+
+/* RTL Admin Styles */
+.rtl.appearance_page_transpro-settings .form-table th {
+    text-align: right;
+}
+
+/* Admin color scheme preview */
+.transpro-color-scheme-preview {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.transpro-preview-sidebar {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.transpro-preview-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.transpro-preview-menu-item {
+    padding: 5px 10px;
+    margin-bottom: 2px;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* TransPro admin help tab */
+.transpro-help-section {
+    margin-bottom: 20px;
+}
+
+.transpro-help-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.transpro-help-section p {
+    margin-bottom: 15px;
+}
+
+.transpro-help-section code {
+    background-color: #f0f0f1;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* Settings tabs */
+.transpro-tabs {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.transpro-tabs .nav-tab {
+    margin-bottom: -1px;
+}
+
+.transpro-tabs .nav-tab-active {
+    background-color: #fff;
+    border-bottom-color: #fff;
+}
+
+.transpro-tab-content {
+    display: none;
+    padding-top: 20px;
+}
+
+.transpro-tab-content.active {
+    display: block;
+}
