@@ -71,7 +71,7 @@ if (!defined('ABSPATH')) {
         <?php if (transpro_show_sidebar()) : ?>
             <aside id="secondary" class="transpro-sidebar">
                 <div class="sidebar-header px-4 py-2 bg-gray-800 text-white">
-                    <h3 class="text-lg font-medium">TransPro</h3>
+                    <h3 class="text-lg font-medium"><?php echo esc_html(get_option('transpro_theme_name', 'TransPro')); ?></h3>
                 </div>
                 <nav class="sidebar-menu">
                     <?php
@@ -89,4 +89,4 @@ if (!defined('ABSPATH')) {
             </aside>
         <?php endif; ?>
 
-        <main id="primary" class="site-main <?php echo transpro_show_sidebar() ? 'has-sidebar' : 'no-sidebar'; ?>">
+        <main id="primary" class="site-main <?php echo transpro_show_sidebar() ? 'has-sidebar' : 'no-sidebar'; ?>"

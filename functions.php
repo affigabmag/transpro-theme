@@ -206,3 +206,35 @@ function transpro_body_classes($classes) {
     return $classes;
 }
 add_filter('body_class', 'transpro_body_classes');
+
+/**
+ * Redirect users to front page after login
+ */
+function transpro_login_redirect($redirect_to, $request, $user) {
+    // If this is not a user object, return the default
+    if (!is_wp_error($user) && isset($user->ID)) {
+        // Get the front page for logged-in users
+        $logged_in_page_query = new WP_Query(array(
+            'post_type' => 'page',
+            'title' => 'Front Page - Logged In',
+            'post_status' => 'publish',
+            'posts_per_page' => 1,
+            'no_found_rows' => true,
+            'update_post_meta_cache' => false,
+            'update_post_term_cache' => false,
+        ));
+        
+        $logged_in_page = (!empty($logged_in_page_query->posts)) ? $logged_in_page_query->posts[0] : null;
+        
+        if ($logged_in_page) {
+            return get_permalink($logged_in_page->ID);
+        }
+        
+        // If no specific logged-in page exists, redirect to home
+        return home_url();
+    }
+    
+    // Otherwise return the default
+    return $redirect_to;
+}
+add_filter('login_redirect', 'transpro_login_redirect', 10, 3);

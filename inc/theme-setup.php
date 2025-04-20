@@ -57,6 +57,14 @@ function transpro_register_settings() {
         'sanitize_callback' => 'sanitize_text_field',
     ));
     add_option('transpro_text_direction', 'ltr'); // Ensure default exists
+    
+    // Register theme name setting
+    register_setting('transpro_options', 'transpro_theme_name', array(
+        'type' => 'string',
+        'default' => 'TransPro',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    add_option('transpro_theme_name', 'TransPro'); // Ensure default exists
 }
 add_action('admin_init', 'transpro_register_settings');
 
@@ -73,8 +81,16 @@ function transpro_settings_page() {
             do_settings_sections('transpro-settings');
             
             $current_direction = get_option('transpro_text_direction', 'ltr');
+            $theme_name = get_option('transpro_theme_name', 'TransPro');
             ?>
             <table class="form-table">
+                <tr valign="top">
+                    <th scope="row"><?php esc_html_e('Theme Name', 'transpro'); ?></th>
+                    <td>
+                        <input type="text" name="transpro_theme_name" value="<?php echo esc_attr($theme_name); ?>" class="regular-text" />
+                        <p class="description"><?php esc_html_e('Enter the name to display in the sidebar header.', 'transpro'); ?></p>
+                    </td>
+                </tr>
                 <tr valign="top">
                     <th scope="row"><?php esc_html_e('Text Direction', 'transpro'); ?></th>
                     <td>

@@ -19,6 +19,20 @@ function transpro_customize_register($wp_customize) {
         'priority' => 30,
     ));
     
+    // Add theme name setting
+    $wp_customize->add_setting('transpro_theme_name', array(
+        'default'           => 'TransPro',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ));
+    
+    $wp_customize->add_control('transpro_theme_name', array(
+        'label'    => esc_html__('Theme Name', 'transpro'),
+        'description' => esc_html__('Name displayed in the sidebar header', 'transpro'),
+        'section'  => 'transpro_options',
+        'type'     => 'text',
+    ));
+    
     // Add text direction setting
     $wp_customize->add_setting('transpro_text_direction', array(
         'default'           => 'ltr',
