@@ -238,3 +238,28 @@ function transpro_login_redirect($redirect_to, $request, $user) {
     return $redirect_to;
 }
 add_filter('login_redirect', 'transpro_login_redirect', 10, 3);
+
+function transpro_hide_admin_bar() {
+    show_admin_bar(false);
+}
+add_action('after_setup_theme', 'transpro_hide_admin_bar');
+
+function transpro_custom_styles() {
+    ?>
+    <style type="text/css">
+        .site-header {
+            background-color: #192841;
+        }
+        .site-header .login-status {
+            color: #ffffff;
+        }
+        .site-header a {
+            color: #ffffff;
+        }
+        .site-header a:hover {
+            color: #e2e8f0;
+        }
+    </style>
+    <?php
+}
+add_action('wp_head', 'transpro_custom_styles');

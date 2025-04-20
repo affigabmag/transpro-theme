@@ -12,3 +12,48 @@ Tags: custom-menu, sidebar, rtl-language-support, tailwind
 */
 
 /* Base styles will be loaded through functions.php */
+
+.site-header {
+    background-color: #192841; /* Dark blue color to match area #2 */
+}
+
+/* Style the welcome message text color to be visible on dark background */
+.site-header .login-status {
+    color: #ffffff;
+}
+
+.site-header a {
+    color: #ffffff;
+}
+
+.site-header a:hover {
+    color: #e2e8f0;
+}
+
+/* Fix white space between sidebar and header */
+.site-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+}
+
+.transpro-sidebar {
+    margin-top: 0;
+    border-top: none;
+}
+
+/* Make logout link more visible */
+.site-header .login-status a {
+    text-decoration: underline;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Add spacing for the main content */
+.site-main {
+    padding: 20px;
+}
+
+.container {
+    padding: 20px;
+}
