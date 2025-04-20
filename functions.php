@@ -183,7 +183,7 @@ function transpro_show_sidebar() {
  * Get RTL status from theme options
  */
 function transpro_is_rtl() {
-    $direction = get_theme_mod('transpro_text_direction', 'ltr');
+    $direction = get_option('transpro_text_direction', 'ltr');
     return ($direction === 'rtl');
 }
 

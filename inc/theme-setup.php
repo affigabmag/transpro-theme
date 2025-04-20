@@ -51,7 +51,12 @@ add_action('admin_menu', 'transpro_add_admin_menu');
  * Register settings
  */
 function transpro_register_settings() {
-    register_setting('transpro_options', 'transpro_text_direction');
+    register_setting('transpro_options', 'transpro_text_direction', array(
+        'type' => 'string',
+        'default' => 'ltr',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    add_option('transpro_text_direction', 'ltr'); // Ensure default exists
 }
 add_action('admin_init', 'transpro_register_settings');
 
@@ -85,6 +90,7 @@ function transpro_settings_page() {
                                 <?php esc_html_e('Right to Left (RTL)', 'transpro'); ?>
                             </label>
                         </fieldset>
+                        <p class="description"><?php esc_html_e('After changing this setting, you may need to refresh your browser to see the changes.', 'transpro'); ?></p>
                     </td>
                 </tr>
             </table>
