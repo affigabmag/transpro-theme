@@ -3,6 +3,8 @@
  * The header for our theme
  */
 
+ ob_start();
+
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
@@ -68,25 +70,25 @@ if (!defined('ABSPATH')) {
     </header>
 
     <div id="content" class="site-content flex">
-        <?php if (transpro_show_sidebar()) : ?>
+        <?php 
+        $show_sidebar = transpro_show_sidebar();
+        if ($show_sidebar) : ?>
             <aside id="secondary" class="transpro-sidebar">
                 <div class="sidebar-header px-4 py-2 bg-gray-800 text-white">
                     <h3 class="text-lg font-medium"><?php echo esc_html(get_option('transpro_theme_name', 'TransPro')); ?></h3>
                 </div>
                 <nav class="sidebar-menu">
                     <?php
-                    wp_nav_menu(
-                        array(
-                            'theme_location' => 'transpro_sidebar',
-                            'menu_id'        => 'transpro-menu',
-                            'container'      => false,
-                            'menu_class'     => 'sidebar-nav',
-                            'fallback_cb'    => false,
-                        )
-                    );
+                    wp_nav_menu(array(
+                        'theme_location' => 'transpro_sidebar',
+                        'menu_id'        => 'transpro-menu',
+                        'container'      => false,
+                        'menu_class'     => 'sidebar-nav',
+                        'fallback_cb'    => false
+                    ));
                     ?>
                 </nav>
             </aside>
         <?php endif; ?>
 
-        <main id="primary" class="site-main <?php echo transpro_show_sidebar() ? 'has-sidebar' : 'no-sidebar'; ?>">
+        <main id="primary" class="site-main <?php echo $show_sidebar ? 'has-sidebar' : 'no-sidebar'; ?>">
