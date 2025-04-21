@@ -89,4 +89,4 @@ if (!defined('ABSPATH')) {
             </aside>
         <?php endif; ?>
 
-        <main id="primary" class="site-main <?php echo transpro_show_sidebar() ? 'has-sidebar' : 'no-sidebar'; ?>"
+        <main id="primary" class="site-main <?php echo transpro_show_sidebar() ? 'has-sidebar' : 'no-sidebar'; ?>">
